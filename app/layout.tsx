@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Chenla, Cormorant_Garamond } from "next/font/google";
+import { Chenla, Cinzel_Decorative, Cormorant_Garamond, Geist } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const serifFont = Cormorant_Garamond({
-  weight: ["400", "600"],
+  weight: ["600"],
   subsets: ["latin"],
   variable: "--font-serif",
 });
+
 
 const chenla = Chenla({
   subsets: ["khmer"],
@@ -26,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     // Updated lang to support both, or just "km" if Khmer is the primary language
-    <html lang="km" className="scroll-smooth">
+    <html lang="km" className={cn("scroll-smooth", "font-sans", geist.variable)}>
       <body
         className={`${serifFont.variable} ${chenla.variable} antialiased font-serif`}
       >
